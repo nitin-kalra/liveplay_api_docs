@@ -125,6 +125,13 @@ define({ api: [
             "field": "matchType",
             "optional": false,
             "description": "e.g. Group A Match, Semi-Final, etc"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "lastUpdate",
+            "optional": false,
+            "description": "Timestamp"
           }
         ]
       }
