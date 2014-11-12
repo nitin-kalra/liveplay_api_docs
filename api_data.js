@@ -465,21 +465,21 @@ define({ api: [
           {
             "group": "Country1 Object",
             "type": "String",
-            "field": "score",
+            "field": "runs",
             "optional": false,
             "description": "Score of country"
           },
           {
             "group": "Country1 Object",
             "type": "Integer",
-            "field": "wicket",
+            "field": "wickets",
             "optional": false,
             "description": "Wickets of country"
           },
           {
             "group": "Country1 Object",
             "type": "Integer",
-            "field": "over",
+            "field": "overs",
             "optional": false,
             "description": "Over of country"
           }
@@ -502,21 +502,21 @@ define({ api: [
           {
             "group": "Country2 Object",
             "type": "String",
-            "field": "score",
+            "field": "runs",
             "optional": false,
             "description": "Score of country"
           },
           {
             "group": "Country2 Object",
             "type": "Integer",
-            "field": "wicket",
+            "field": "wickets",
             "optional": false,
             "description": "Wickets of country"
           },
           {
             "group": "Country2 Object",
             "type": "Integer",
-            "field": "over",
+            "field": "overs",
             "optional": false,
             "description": "Over of country"
           }
