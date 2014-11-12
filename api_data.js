@@ -396,7 +396,7 @@ define({ api: [
     "url": "liveScore",
     "title": "       Live Score",
     "name": "newLiveScore_(SOCKET)",
-    "description": "Live Score of current game",
+    "description": "GAME SERVER BROADCAST",
     "group": "Game_Server",
     "version": "1.0.0",
     "parameter": {
@@ -424,16 +424,23 @@ define({ api: [
             "description": "Data Object containing method parameters"
           }
         ],
-        "Success": [
+        "Data Object": [
           {
-            "group": "Success 200",
+            "group": "Data Object",
+            "type": "String",
+            "field": "gameID",
+            "optional": false,
+            "description": "Id of the game."
+          },
+          {
+            "group": "Data Object",
             "type": "JSONObject",
             "field": "country1",
             "optional": false,
             "description": "Country1 object containg the data for country1"
           },
           {
-            "group": "Success 200",
+            "group": "Data Object",
             "type": "JSONObject",
             "field": "country2",
             "optional": false,
@@ -441,13 +448,6 @@ define({ api: [
           }
         ],
         "Country1 Object": [
-           {
-            "group": "Country1 Object",
-            "type": "String",
-            "field": "name",
-            "optional": false,
-            "description": "Name of the country"
-          },
           {
             "group": "Country1 Object",
             "type": "String",
@@ -485,13 +485,6 @@ define({ api: [
           }
         ],
         "Country2 Object": [
-           {
-            "group": "Country2 Object",
-            "type": "String",
-            "field": "name",
-            "optional": false,
-            "description": "Name of the country"
-          },
           {
             "group": "Country2 Object",
             "type": "String",
