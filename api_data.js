@@ -108,9 +108,23 @@ define({ api: [
           {
             "group": "Success 200",
             "type": "String",
+            "field": "countryAbbr1",
+            "optional": false,
+            "description": "Abbreviation of first country"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
             "field": "country2",
             "optional": false,
             "description": "Name of second country"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "countryAbbr2",
+            "optional": false,
+            "description": "Abbreviation of second country"
           },
           {
             "group": "Success 200",
@@ -371,6 +385,147 @@ define({ api: [
             "field": "timeStamp",
             "optional": false,
             "description": "Current Unix timestamp"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+   {
+    "type": "socket",
+    "url": "liveScore",
+    "title": "       Live Score",
+    "name": "newLiveScore_(SOCKET)",
+    "description": "Live Score of current game",
+    "group": "Game_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "method",
+            "optional": false,
+            "description": "Name of method as defined above"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "hash",
+            "optional": false,
+            "description": "MD5 Hash of data"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSONObject",
+            "field": "data",
+            "optional": false,
+            "description": "Data Object containing method parameters"
+          }
+        ],
+        "Success": [
+          {
+            "group": "Success 200",
+            "type": "JSONObject",
+            "field": "country1",
+            "optional": false,
+            "description": "Country1 object containg the data for country1"
+          },
+          {
+            "group": "Success 200",
+            "type": "JSONObject",
+            "field": "country2",
+            "optional": false,
+            "description": "Country2 object containg the data for country2"
+          }
+        ],
+        "Country1 Object": [
+           {
+            "group": "Country1 Object",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the country"
+          },
+          {
+            "group": "Country1 Object",
+            "type": "String",
+            "field": "abbr",
+            "optional": false,
+            "description": "Abbreviation of the country"
+          },
+          {
+            "group": "Country1 Object",
+            "type": "Integer",
+            "field": "battingStatus",
+            "optional": false,
+            "description": "Batting status of country"
+          },
+          {
+            "group": "Country1 Object",
+            "type": "String",
+            "field": "score",
+            "optional": false,
+            "description": "Score of country"
+          },
+          {
+            "group": "Country1 Object",
+            "type": "Integer",
+            "field": "wicket",
+            "optional": false,
+            "description": "Wickets of country"
+          },
+          {
+            "group": "Country1 Object",
+            "type": "Integer",
+            "field": "over",
+            "optional": false,
+            "description": "Over of country"
+          }
+        ],
+        "Country2 Object": [
+           {
+            "group": "Country2 Object",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the country"
+          },
+          {
+            "group": "Country2 Object",
+            "type": "String",
+            "field": "abbr",
+            "optional": false,
+            "description": "Abbreviation of the country"
+          },
+          {
+            "group": "Country2 Object",
+            "type": "Integer",
+            "field": "battingStatus",
+            "optional": false,
+            "description": "Batting status of country"
+          },
+          {
+            "group": "Country2 Object",
+            "type": "String",
+            "field": "score",
+            "optional": false,
+            "description": "Score of country"
+          },
+          {
+            "group": "Country2 Object",
+            "type": "Integer",
+            "field": "wicket",
+            "optional": false,
+            "description": "Wickets of country"
+          },
+          {
+            "group": "Country2 Object",
+            "type": "Integer",
+            "field": "over",
+            "optional": false,
+            "description": "Over of country"
           }
         ]
       }
