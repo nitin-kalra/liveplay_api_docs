@@ -652,6 +652,66 @@ define({ api: [
   },
   {
     "type": "socket",
+    "url": "invalidateQuestion",
+    "title": "       Invalidate Question",
+    "name": "invalidateQuestion_(SOCKET)",
+    "description": "Question Invalid. GAME SERVER BROADCAST",
+    "group": "Game_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "method",
+            "optional": false,
+            "description": "Name of method as defined above"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "hash",
+            "optional": false,
+            "description": "MD5 Hash of data"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSONObject",
+            "field": "data",
+            "optional": false,
+            "description": "Data Object containing method parameters"
+          }
+        ],
+        "DataObject": [
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "questionId",
+            "optional": false,
+            "description": "Question Identifier"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "gameId",
+            "optional": false,
+            "description": "Game Identifier"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "status",
+            "optional": false,
+            "description": "Question Status. It always come -1"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
+    "type": "socket",
     "url": "userAnswer",
     "title": "        User Answer",
     "name": "userAnswer_(SOCKET)",

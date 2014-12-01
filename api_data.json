@@ -150,6 +150,81 @@
     "filename": "./server.js"
   },
   {
+    "type": "get",
+    "url": "/gamelist",
+    "title": "            Remove Game",
+    "name": "gamelist_(GET)",
+    "description": "Retrieve the list of scheduled games. Only changes in schedule since the lastUpdate timestamp are sent",
+    "group": "API_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "lastUpdate",
+            "optional": false,
+            "description": "Timestamp of last update"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "country1",
+            "optional": false,
+            "description": "Name of first country"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "country2",
+            "optional": false,
+            "description": "Name of second country"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "dateTime",
+            "optional": false,
+            "description": "Scheduled start time of match"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "matchType",
+            "optional": false,
+            "description": "e.g. Group A Match, Semi-Final, etc"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "field": "401",
+            "optional": false,
+            "description": "Not Authorized"
+          },
+          {
+            "group": "Error",
+            "field": "500",
+            "optional": false,
+            "description": "Internal server error"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
     "type": "post",
     "url": "/login",
     "title": "              Login",
