@@ -71,7 +71,7 @@ define({ api: [
           }
         ]
       }
-    },
+    }, 
     "filename": "./server.js"
   },
   {
@@ -246,7 +246,328 @@ define({ api: [
     "filename": "./server.js"
   },
   {
-    "type": "socket",
+    "type": "get",
+    "url": "/leaderboard",
+    "title": "        Leader Board",
+    "name": "leaderboardToken_(POST)",
+    "description": "Get data for leaderboard",
+    "group": "API_Server",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "leaderBoard",
+            "optional": false,
+            "description": "Return array of JSONObject with following parameter" 
+          }
+        ],
+        "leaderboard": [
+          {
+            "group": "leaderboard",
+            "type": "String",
+            "field": "fbId",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "leaderboard",
+            "type": "Integer",
+            "field": "currentScore",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "leaderboard",
+            "type": "Integer",
+            "field": "currentRank",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "leaderboard",
+            "type": "Integer",
+            "field": "previousRank",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "leaderboard",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "" 
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "field": "401",
+            "optional": false,
+            "description": "Not Authorized"
+          },
+          {
+            "group": "Error",
+            "field": "500",
+            "optional": false,
+            "description": "Internal server error"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
+    "type": "post",
+    "url": "/friendsScore",
+    "title": "        Friends Score",
+    "name": "friendsScore_(POST)",
+    "description": "Send FBIDs to get friend score",
+    "group": "API_Server",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "fbIds",
+            "optional": false,
+            "description": "Comma Seprated FB IDS" 
+          }
+        ],
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "friendsScore",
+            "optional": false,
+            "description": "JSONObject of friend's score." 
+          }
+        ],
+        "friendsScore": [
+          {
+            "group": "friendsScore",
+            "type": "String",
+            "field": "fbId",
+            "optional": false,
+            "description": "Id of user" 
+          },
+          {
+            "group": "friendsScore",
+            "type": "Integer",
+            "field": "currentScore",
+            "optional": false,
+            "description": "Current Score of User" 
+          },
+          {
+            "group": "friendsScore",
+            "type": "Integer",
+            "field": "previousScore",
+            "optional": false,
+            "description": "Prev. Score of User" 
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "field": "401",
+            "optional": false,
+            "description": "Not Authorized"
+          },
+          {
+            "group": "Error",
+            "field": "500",
+            "optional": false,
+            "description": "Internal server error"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
+    "type": "post",
+    "url": "/gameReciept",
+    "title": "        Game Reciept",
+    "name": "GameReceipt_(POST)",
+    "description": "Get game receipt",
+    "group": "API_Server",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "gameId",
+            "optional": false,
+            "description": "Id of the game" 
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "fbId",
+            "optional": false,
+            "description": "FB Id of the user" 
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "friendsList",
+            "optional": false,
+            "description": "Ids of the fb friends" 
+          }
+        ],
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "JSONObject",
+            "field": "top3",
+            "optional": false,
+            "description": "JSONObject of top3 rank users." 
+          },
+          {
+            "group": "Success 200",
+            "type": "JSONObject",
+            "field": "user",
+            "optional": false,
+            "description": "JSONObject contains allgamesdata, gamedata objects " 
+          },
+          {
+            "group": "Success 200",
+            "type": "JSONObject",
+            "field": "friendsScore",
+            "optional": false,
+            "description": "JSONObject contains friends score informations." 
+          }
+        ],
+        "top3": [
+          {
+            "group": "top3",
+            "type": "string",
+            "field": "fbId",
+            "optional": false,
+            "description": "Id of the user" 
+          },
+          {
+            "group": "top3",
+            "type": "Integer",
+            "field": "gameScore",
+            "optional": false,
+            "description": "Score of the users" 
+          },
+          {
+            "group": "top3",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the users" 
+          },
+          {
+            "group": "top3",
+            "type": "Integer",
+            "field": "rank",
+            "optional": false,
+            "description": "Rank of the user" 
+          }
+        ],
+        "allGamesData": [
+          {
+            "group": "allGamesData",
+            "type": "Integer",
+            "field": "currentRank",
+            "optional": false,
+            "description": "Current Rank of User" 
+          },
+          {
+            "group": "allGamesData",
+            "type": "Integer",
+            "field": "currentScore",
+            "optional": false,
+            "description": "Current Score of the users" 
+          },
+          {
+            "group": "allGamesData",
+            "type": "Integer",
+            "field": "previousRank",
+            "optional": false,
+            "description": "PreviousRank of User" 
+          }
+        ],
+        "gamesData": [
+          {
+            "group": "gamesData",
+            "type": "Integer",
+            "field": "gameRank",
+            "optional": false,
+            "description": "Game Rank of User" 
+          },
+          {
+            "group": "gamesData",
+            "type": "Integer",
+            "field": "gameScore",
+            "optional": false,
+            "description": "Game Score of the users" 
+          }
+        ],
+        "friendsScore": [
+          {
+            "group": "friendsScore",
+            "type": "Integer",
+            "field": "currentScore",
+            "optional": false,
+            "description": "Score of Friends" 
+          },
+          {
+            "group": "friendsScore",
+            "type": "Integer",
+            "field": "fbId",
+            "optional": false,
+            "description": "Id of the user" 
+          },
+          {
+            "group": "previousScore",
+            "type": "Integer",
+            "field": "previousScore",
+            "optional": false,
+            "description": "Previous Score of Friends" 
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "field": "401",
+            "optional": false,
+            "description": "Not Authorized"
+          },
+          {
+            "group": "Error",
+            "field": "500",
+            "optional": false,
+            "description": "Internal server error"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
+    "type": "socket/post",
     "url": "getUpdates",
     "title": "       Get Updates",
     "name": "getUpdates_(SOCKET)",
@@ -326,6 +647,187 @@ define({ api: [
   },
   {
     "type": "socket",
+    "url": "newQuestion",
+    "title": "       New Question",
+    "name": "newQuestion_(SOCKET)",
+    "description": "New question posted on server. GAME SERVER BROADCAST",
+    "group": "Game_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "method",
+            "optional": false,
+            "description": "Name of method as defined above"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "hash",
+            "optional": false,
+            "description": "MD5 Hash of data"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSONObject",
+            "field": "data",
+            "optional": false,
+            "description": "Data Object containing method parameters"
+          }
+        ],
+        "DataObject": [
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "questionId",
+            "optional": false,
+            "description": "Question Identifier"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "gameId",
+            "optional": false,
+            "description": "Game Identifier"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "questionText",
+            "optional": false,
+            "description": "Question Text"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "timeToAnswer",
+            "optional": false,
+            "description": "Amount of time provided for answering question"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "correctAnswer",
+            "optional": false,
+            "description": "Correct answer id if known, 0 otherwise"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "questionTime",
+            "optional": false,
+            "description": "Unix timestamp of the time at which question was posted"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "score",
+            "optional": false,
+            "description": "Score at the time of the question"
+          },
+          {
+            "group": "DataObject",
+            "type": "JSONArray",
+            "field": "answers",
+            "optional": false,
+            "description": "Array of Answer Objects"
+          },
+          {
+            "group": "DataObject",
+            "type": "String",
+            "field": "timeStamp",
+            "optional": false,
+            "description": "Current Unix timestamp"
+          }
+        ],
+        "AnswerObject": [
+          {
+            "group": "AnswerObject",
+            "type": "String",
+            "field": "answersId",
+            "optional": false,
+            "description": "Answer Identifier"
+          },
+          {
+            "group": "AnswerObject",
+            "type": "String",
+            "field": "answersText",
+            "optional": false,
+            "description": "Answer Text"
+          },
+          {
+            "group": "AnswerObject",
+            "type": "Integer",
+            "field": "points",
+            "optional": false,
+            "description": "Points for answer choice"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+
+  {
+    "type": "post",
+    "url": "deviceTokenOnLetsPay",
+    "title": "       DeviceToken On LetsPlay",
+    "name": "deviceTokenOnLetsPay_(SOCKET)",
+    "description": "Send device token on let play",
+    "group": "Game_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "method",
+            "optional": false,
+            "description": "Name of method as defined above"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "hash",
+            "optional": false,
+            "description": "MD5 Hash of data"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSONObject",
+            "field": "deviceToken",
+            "optional": false,
+            "description": "DeviceToken Object containing method parameters"
+          }
+        ],
+        "deviceToken": [
+          {
+            "group": "deviceToken",
+            "type": "String",
+            "field": "deviceType",
+            "optional": false,
+            "description": "ios or android"
+          },
+          {
+            "group": "deviceToken",
+            "type": "String",
+            "field": "token",
+            "optional": false,
+            "description": "Token of devices"
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+
+
+  {
+    "type": "socket/post",
     "url": "newAnswer",
     "title": "         New Answer",
     "name": "newAnswer_(SOCKET)",
@@ -711,7 +1213,7 @@ define({ api: [
     "filename": "./server.js"
   },
   {
-    "type": "socket",
+    "type": "socket/post",
     "url": "userAnswer",
     "title": "        User Answer",
     "name": "userAnswer_(SOCKET)",
