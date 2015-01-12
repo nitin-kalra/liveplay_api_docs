@@ -1403,6 +1403,216 @@ define({ api: [
     },
     "filename": "./server.js"
   },
+
+  {
+    "type": "post",
+    "url": "sendMessage",
+    "title": "         Send Message",
+    "name": "sendMessage",
+    "description": "Send message posted on server.",
+    "group": "Chat_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "messageID",
+            "optional": false,
+            "description": "Unique Message ID"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "fromFbID",
+            "optional": false,
+            "description": "From FB ID"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "toFbID",
+            "optional": false,
+            "description": "To FB ID"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "messageBody",
+            "optional": false,
+            "description": "Message Body"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "messageType",
+            "optional": false,
+            "description": "can be 1- short 2 -long 3- delivered 4- read"
+          }
+        ],
+      },
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "OK",
+            "optional": false,
+            "description": "Confirmation of the message"
+          }
+        ]
+      }
+
+    },
+    "filename": "./server.js"
+  },
+
+  {
+    "type": "post",
+    "url": "getMessage",
+    "title": "         Get Message",
+    "name": "getMessage",
+    "description": "Get message from server.",
+    "group": "Chat_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "messageID",
+            "optional": false,
+            "description": "Unique Message ID"
+          }
+        ],
+      },
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "chatMessage",
+            "optional": false,
+            "description": "Chat Message Json Object"
+          },
+        ],
+        "chatMessage": [
+          {
+            "group": "chatMessage",
+            "type": "String",
+            "field": "messageID",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "chatMessage",
+            "type": "String",
+            "field": "fromFbID",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "chatMessage",
+            "type": "String",
+            "field": "messageType",
+            "optional": false,
+            "description": "" 
+          },
+          {
+            "group": "chatMessage",
+            "type": "String",
+            "field": "messageBody",
+            "optional": false,
+            "description": "" 
+          }
+        ]
+      }
+    },
+    "filename": "./server.js"
+  },
+  {
+    "type": "post",
+    "url": "/deviceToken",
+    "title": "        Device Token",
+    "name": "chat_deviceToken_(POST)",
+    "description": "Register a device token with the server for push notifications",
+    "group": "Chat_Server",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "deviceID",
+            "optional": false,
+            "description": "Device identification"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "fbID",
+            "optional": false,
+            "description": "Facebook ID of user"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "token",
+            "optional": false,
+            "description": "Push notification token"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "deviceType",
+            "optional": false,
+            "description": "iOS / Android"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "result",
+            "optional": false,
+            "description": "OK"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "field": "401",
+            "optional": false,
+            "description": "Not Authorized"
+          },
+          {
+            "group": "Error",
+            "field": "500",
+            "optional": false,
+            "description": "Internal server error"
+          }
+        ]
+      }
+    }, 
+    "filename": "./server.js"
+  },
+
+
   {
     "type": "",
     "url": "private",
